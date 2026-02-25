@@ -1,5 +1,5 @@
 ## Video Profile
 
-Klik untuk melihat video:
+Klik untuk melihat video profile saya:
 
-https://drive.google.com/drive/folders/1oVpoi5IekzeYVraVPfBOxCBah1LjJcUv?usp=sharing
+https://drive.google.com/file/d/1xId-ynrBIQ0LSDhtgBdQjZ5Z9vtdxleO/view?usp=sharing
