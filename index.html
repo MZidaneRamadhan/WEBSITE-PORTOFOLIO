@@ -1,0 +1,1223 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IDan Dev — Portfolio</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/claude.css" />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cyber: {
+                bg: "#040810",
+                panel: "#070d1a",
+                border: "#0f2040",
+                blue: "#1d6df5",
+                blue2: "#3d8fff",
+                green: "#00e5a0",
+                green2: "#00ffc3",
+                gray: "#7a8ba8",
+                light: "#b8cce0",
+              },
+            },
+            fontFamily: {
+              display: ["Syne", "sans-serif"],
+              mono: ["Space Mono", "monospace"],
+              body: ["DM Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style></style>
+  </head>
+  <body class="scanlines">
+    <!-- Particle Canvas -->
+    <canvas id="particles"></canvas>
+
+    <!-- ═══════════════════════════════════════════ NAVBAR ════════════════════════════════════════════ -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <!-- Logo -->
+        <a
+          href="#beranda"
+          class="font-mono text-sm font-bold text-cyber-blue tracking-widest glow-blue"
+        >
+          <span class="text-cyber-green">&lt;</span>ALEX.DEV<span
+            class="text-cyber-green"
+            >/&gt;</span
+          >
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#beranda" class="nav-link">Beranda</a>
+          <a href="#profil" class="nav-link">Profil</a>
+          <a href="#skill" class="nav-link">Skill</a>
+          <a href="#penugasan" class="nav-link">Penugasan</a>
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+          <a href="#video" class="nav-link">Video</a>
+          <a href="#kontak" class="nav-link">Kontak</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menuBtn"
+          class="md:hidden text-cyber-gray hover:text-cyber-blue transition-colors"
+        >
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobileMenu"
+        class="hidden md:hidden mt-4 pb-2 border-t border-cyber-border"
+      >
+        <div class="flex flex-col gap-3 pt-3">
+          <a href="#beranda" class="nav-link">Beranda</a>
+          <a href="#profil" class="nav-link">Profil</a>
+          <a href="#skill" class="nav-link">Skill</a>
+          <a href="#penugasan" class="nav-link">Penugasan</a>
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+          <a href="#video" class="nav-link">Video</a>
+          <a href="#kontak" class="nav-link">Kontak</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════ 1. HERO / BERANDA ════════════════════════════════════════════ -->
+    <section
+      id="beranda"
+      class="relative min-h-screen grid-bg flex items-center pt-20"
+    >
+      <div class="relative z-10 max-w-7xl mx-auto px-6 py-24 w-full">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- Text -->
+          <div>
+            <p class="section-label mb-4 reveal">// Halo, Dunia!</p>
+            <h1
+              class="section-title text-5xl md:text-6xl lg:text-7xl mb-6 reveal reveal-delay-1"
+            >
+              Saya <span class="text-cyber-blue glow-blue">Zidane</span><br />
+              <span class="text-cyber-green glow-green">Software Engineer</span>
+            </h1>
+            <p
+              id="typedText"
+              class="font-mono text-cyber-gray text-sm mb-8 h-6 cursor reveal reveal-delay-2"
+            ></p>
+            <p
+              class="text-cyber-light leading-relaxed mb-10 max-w-lg reveal reveal-delay-3"
+            >
+              Full-stack developer dengan passion di bidang Website, Design
+              Software System, dan pengembangan produk digital modern. Saya
+              membangun pengalaman web yang elegan, cepat, dan bermakna.
+            </p>
+            <div class="flex flex-wrap gap-4 reveal reveal-delay-4">
+              <a href="#portfolio" class="btn-blue">Lihat Karya →</a>
+              <a href="#kontak" class="btn-green">Hubungi Saya</a>
+            </div>
+          </div>
+
+          <!-- Avatar deco -->
+          <div class="flex justify-center lg:justify-end reveal reveal-delay-2">
+            <div class="relative">
+              <!-- Outer ring -->
+              <div
+                class="absolute -inset-6 rounded-full border border-cyber-blue opacity-20 animate-spin"
+                style="animation-duration: 20s"
+              ></div>
+              <div
+                class="absolute -inset-12 rounded-full border border-cyber-green opacity-10 animate-spin"
+                style="animation-duration: 35s; animation-direction: reverse"
+              ></div>
+
+              <div
+                class="bracket relative w-56 h-56 md:w-64 md:h-64 overflow-hidden rounded-lg border border-cyber-border"
+              >
+                <img
+                  src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=AlexDev&backgroundColor=040810"
+                  alt="Avatar Alex Dev"
+                  class="w-full h-full object-cover"
+                />
+                <!-- Scan line effect -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-blue/5 to-transparent animate-pulse"
+                ></div>
+              </div>
+
+              <!-- Status badge -->
+              <div
+                class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-cyber-panel border border-cyber-border px-4 py-1.5 rounded-full font-mono text-xs flex items-center gap-2 whitespace-nowrap"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-cyber-green animate-pulse"
+                ></span>
+                <span class="text-cyber-green">Available for hire</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+          <div
+            class="bg-cyber-panel border border-cyber-border rounded-lg p-4 text-center card-hover"
+          >
+            <p class="font-display text-3xl font-bold text-cyber-blue">3+</p>
+            <p class="text-cyber-gray text-xs font-mono mt-1">Tahun Exp.</p>
+          </div>
+          <!-- <div
+            class="bg-cyber-panel border border-cyber-border rounded-lg p-4 text-center card-hover"
+          >
+            <p class="font-display text-3xl font-bold text-cyber-blue">20+</p>
+            <p class="text-cyber-gray text-xs font-mono mt-1">Proyek Selesai</p>
+          </div>
+          <div
+            class="bg-cyber-panel border border-cyber-border rounded-lg p-4 text-center card-hover"
+          >
+            <p class="font-display text-3xl font-bold text-cyber-green">10+</p>
+            <p class="text-cyber-gray text-xs font-mono mt-1">Klien Puas</p>
+          </div>
+          <div
+            class="bg-cyber-panel border border-cyber-border rounded-lg p-4 text-center card-hover"
+          >
+            <p class="font-display text-3xl font-bold text-cyber-green">5★</p>
+            <p class="text-cyber-gray text-xs font-mono mt-1">
+              Rating Rata-rata
+            </p>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <div class="h-divider"></div>
+
+    <!-- ═══════════════════════════════════════════ 2. PROFIL ════════════════════════════════════════════ -->
+    <section id="profil" class="relative py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="section-label mb-2 reveal">02 — Tentang Saya</p>
+        <h2
+          class="section-title text-4xl md:text-5xl mb-16 reveal reveal-delay-1"
+        >
+          Profil <span class="text-cyber-blue">Diri</span>
+        </h2>
+
+        <div class="grid lg:grid-cols-5 gap-12 items-start">
+          <!-- Photo card -->
+          <div class="lg:col-span-2 reveal reveal-delay-1">
+            <div
+              class="bracket bg-cyber-panel border border-cyber-border rounded-xl overflow-hidden"
+            >
+              <img
+                src="https://api.dicebear.com/7.x/personas/svg?seed=AlexDev&backgroundColor=070d1a"
+                alt="Foto Profil Alex Dev"
+                class="w-full aspect-square object-cover"
+              />
+            </div>
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <div
+                class="bg-cyber-panel border border-cyber-border rounded-lg p-3"
+              >
+                <p class="text-cyber-gray text-xs font-mono">Lokasi</p>
+                <p
+                  class="text-cyber-light text-sm mt-1 flex items-center gap-1.5"
+                >
+                  <i
+                    class="fa-solid fa-location-dot text-cyber-green text-xs"
+                  ></i>
+                  Jakarta, ID
+                </p>
+              </div>
+              <div
+                class="bg-cyber-panel border border-cyber-border rounded-lg p-3"
+              >
+                <p class="text-cyber-gray text-xs font-mono">Status</p>
+                <p
+                  class="text-cyber-green text-sm mt-1 flex items-center gap-1.5"
+                >
+                  <i class="fa-solid fa-circle text-xs animate-pulse"></i> Open
+                  to Work
+                </p>
+              </div>
+              <div
+                class="bg-cyber-panel border border-cyber-border rounded-lg p-3"
+              >
+                <p class="text-cyber-gray text-xs font-mono">Pendidikan</p>
+                <p class="text-cyber-light text-sm mt-1">
+                  D4 Teknik Informatika
+                </p>
+              </div>
+              <div
+                class="bg-cyber-panel border border-cyber-border rounded-lg p-3"
+              >
+                <p class="text-cyber-gray text-xs font-mono">Bahasa</p>
+                <p class="text-cyber-light text-sm mt-1">ID / EN</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div class="lg:col-span-3 reveal reveal-delay-2">
+            <h3 class="font-display text-2xl font-bold text-white mb-1">
+              Zidane Ramadhan
+            </h3>
+            <p class="text-cyber-blue font-mono text-sm mb-6">
+              Full-Stack Developer &amp; System Designer
+            </p>
+
+            <p class="text-cyber-light leading-relaxed mb-4">
+              Saya adalah seorang pengembang web full-stack yang memiliki
+              ketertarikan mendalam pada teknologi modern, systen desain, dan
+              solusi IT. Dengan pengalaman lebih dari 4 tahun akademik dan satu
+              tahun di industri, saya telah berhasil menyelesaikan berbagai
+              proyek dari skala kecil hingga besar.
+            </p>
+            <p class="text-cyber-light leading-relaxed mb-8">
+              Filosofi saya dalam coding: kode yang baik bukan hanya kode yang
+              berjalan, tetapi kode yang bisa dipahami, dipelihara, dan
+              dikembangkan oleh siapapun. Saya percaya bahwa teknologi harus
+              memberdayakan manusia, bukan mempersulit mereka.
+            </p>
+
+            <!-- Timeline -->
+            <h4
+              class="font-mono text-xs text-cyber-gray uppercase tracking-widest mb-5"
+            >
+              Latar Belakang
+            </h4>
+            <div class="space-y-4">
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-2 h-2 rounded-full bg-cyber-blue mt-1.5 flex-shrink-0 ring-4 ring-cyber-blue/20"
+                ></div>
+                <div>
+                  <p class="text-cyber-light text-sm font-medium">
+                    2022 – 2025
+                  </p>
+                  <p class="text-cyber-gray text-xs">
+                    Rekayasa Perangkat Lunak SMK Negeri 1 Cimahi
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-2 h-2 rounded-full bg-cyber-blue mt-1.5 flex-shrink-0 ring-4 ring-cyber-blue/20"
+                ></div>
+                <div>
+                  <p class="text-cyber-light text-sm font-medium">2025</p>
+                  <p class="text-cyber-gray text-xs">
+                    Backend Developer @ DeltaNet
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-2 h-2 rounded-full bg-cyber-green mt-1.5 flex-shrink-0 ring-4 ring-cyber-green/20"
+                ></div>
+                <div>
+                  <p class="text-cyber-light text-sm font-medium">
+                    2025 – Sekarang
+                  </p>
+                  <p class="text-cyber-gray text-xs">
+                    D4 Teknik Informatika – Politeknik Negeri Bandung
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div
+                  class="w-2 h-2 rounded-full bg-cyber-green mt-1.5 flex-shrink-0 ring-4 ring-cyber-green/20"
+                ></div>
+                <div>
+                  <p class="text-cyber-light text-sm font-medium">
+                    2025 - sekarang
+                  </p>
+                  <p class="text-cyber-gray text-xs">Freelancer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="h-divider"></div>
+
+    <!-- ═══════════════════════════════════════════ 3. SKILL & MINAT ════════════════════════════════════════════ -->
+    <section id="skill" class="relative py-24 grid-bg">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="section-label mb-2 reveal">03 — Kemampuan</p>
+        <h2
+          class="section-title text-4xl md:text-5xl mb-16 reveal reveal-delay-1"
+        >
+          Skill &amp; <span class="text-cyber-green">Minat</span>
+        </h2>
+
+        <div class="grid lg:grid-cols-2 gap-16">
+          <!-- Technical Skills -->
+          <div class="reveal reveal-delay-1">
+            <h3
+              class="font-mono text-xs text-cyber-gray uppercase tracking-widest mb-8"
+            >
+              // Skill Teknis
+            </h3>
+            <div class="space-y-6" id="skillBars">
+              <!-- JS generates these bars -->
+            </div>
+          </div>
+
+          <!-- Right column: soft skills + interests -->
+          <div>
+            <!-- Soft skills -->
+            <div class="reveal reveal-delay-2 mb-10">
+              <h3
+                class="font-mono text-xs text-cyber-gray uppercase tracking-widest mb-6"
+              >
+                // Skill Non-Teknis
+              </h3>
+              <div class="flex flex-wrap gap-3">
+                <span
+                  class="bg-cyber-panel border border-cyber-border text-cyber-light font-mono text-xs px-4 py-2 rounded-full card-hover cursor-default"
+                  >Problem Solving</span
+                >
+                <span
+                  class="bg-cyber-panel border border-cyber-border text-cyber-light font-mono text-xs px-4 py-2 rounded-full card-hover cursor-default"
+                  >Komunikasi</span
+                >
+                <span
+                  class="bg-cyber-panel border border-cyber-border text-cyber-light font-mono text-xs px-4 py-2 rounded-full card-hover cursor-default"
+                  >Teamwork</span
+                >
+                <span
+                  class="bg-cyber-panel border border-cyber-border text-cyber-light font-mono text-xs px-4 py-2 rounded-full card-hover cursor-default"
+                  >Time Management</span
+                >
+                <span
+                  class="bg-cyber-panel border border-cyber-border text-cyber-light font-mono text-xs px-4 py-2 rounded-full card-hover cursor-default"
+                  >Adaptasi</span
+                >
+                <span
+                  class="bg-cyber-panel border border-cyber-border text-cyber-light font-mono text-xs px-4 py-2 rounded-full card-hover cursor-default"
+                  >Critical Thinking</span
+                >
+              </div>
+            </div>
+
+            <!-- Interests -->
+            <div class="reveal reveal-delay-3">
+              <h3
+                class="font-mono text-xs text-cyber-gray uppercase tracking-widest mb-6"
+              >
+                // Minat &amp; Hobi
+              </h3>
+              <div class="grid grid-cols-3 gap-4">
+                <div
+                  class="bg-cyber-panel border border-cyber-border rounded-xl p-4 text-center card-hover card-hover-green"
+                >
+                  <i
+                    class="fa-solid fa-brain text-2xl text-cyber-green mb-3"
+                  ></i>
+                  <p class="text-cyber-light text-xs font-mono">
+                    Artificial Intelligence
+                  </p>
+                </div>
+                <div
+                  class="bg-cyber-panel border border-cyber-border rounded-xl p-4 text-center card-hover card-hover-green"
+                >
+                  <i
+                    class="fa-brands fa-osi text-2xl text-cyber-green mb-3"
+                  ></i>
+                  <p class="text-cyber-light text-xs font-mono">Open Source</p>
+                </div>
+                <div
+                  class="bg-cyber-panel border border-cyber-border rounded-xl p-4 text-center card-hover card-hover-green"
+                >
+                  <i
+                    class="fa-solid fa-gamepad text-2xl text-cyber-green mb-3"
+                  ></i>
+                  <p class="text-cyber-light text-xs font-mono">Game Dev</p>
+                </div>
+                <div
+                  class="bg-cyber-panel border border-cyber-border rounded-xl p-4 text-center card-hover card-hover-green"
+                >
+                  <i
+                    class="fa-solid fa-palette text-2xl text-cyber-green mb-3"
+                  ></i>
+                  <p class="text-cyber-light text-xs font-mono">UI/UX Design</p>
+                </div>
+                <div
+                  class="bg-cyber-panel border border-cyber-border rounded-xl p-4 text-center card-hover card-hover-green"
+                >
+                  <i
+                    class="fa-solid fa-book-open text-2xl text-cyber-green mb-3"
+                  ></i>
+                  <p class="text-cyber-light text-xs font-mono">Tech Writing</p>
+                </div>
+                <div
+                  class="bg-cyber-panel border border-cyber-border rounded-xl p-4 text-center card-hover card-hover-green"
+                >
+                  <i
+                    class="fa-solid fa-cloud text-2xl text-cyber-green mb-3"
+                  ></i>
+                  <p class="text-cyber-light text-xs font-mono">
+                    Cloud &amp; DevOps
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="h-divider"></div>
+
+    <!-- ═══════════════════════════════════════════ 4. PENUGASAN ════════════════════════════════════════════ -->
+    <section id="penugasan" class="relative py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="section-label mb-2 reveal">04 — Tugas</p>
+        <h2
+          class="section-title text-4xl md:text-5xl mb-16 reveal reveal-delay-1"
+        >
+          Daftar <span class="text-cyber-blue">Penugasan</span>
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Tugas 1 -->
+          <div
+            class="bg-cyber-panel border border-cyber-border rounded-xl p-6 card-hover reveal reveal-delay-1"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <span
+                class="font-mono text-xs text-cyber-blue bg-cyber-blue/10 px-3 py-1 rounded-full"
+                >Tugas 01</span
+              >
+              <span
+                class="text-cyber-green text-xs font-mono bg-cyber-green/10 px-2 py-1 rounded-full"
+                >Selesai</span
+              >
+            </div>
+            <div
+              class="w-10 h-10 rounded-lg bg-cyber-blue/15 flex items-center justify-center mb-4"
+            >
+              <i class="fa-solid fa-list-check text-cyber-blue"></i>
+            </div>
+            <h3 class="font-display text-lg font-bold text-white mb-2">Tor</h3>
+            <div class="flex flex-wrap gap-2">
+              <a
+                href="https://docs.google.com/document/d/16_bIMgUChfUwTwopImBoJz8BUVBlVb4o/edit?usp=sharing&ouid=116408707304216819109&rtpof=true&sd=true"
+                >Lihat</a
+              >
+            </div>
+          </div>
+
+          <!-- Tugas 2 -->
+          <div
+            class="bg-cyber-panel border border-cyber-border rounded-xl p-6 card-hover reveal reveal-delay-2"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <span
+                class="font-mono text-xs text-cyber-blue bg-cyber-blue/10 px-3 py-1 rounded-full"
+                >Tugas 02</span
+              >
+              <span
+                class="text-cyber-green text-xs font-mono bg-cyber-green/10 px-2 py-1 rounded-full"
+                >Selesai</span
+              >
+            </div>
+            <div
+              class="w-10 h-10 rounded-lg bg-cyber-green/15 flex items-center justify-center mb-4"
+            >
+              <i class="fa-solid fa-pen-nib text-cyber-green"></i>
+            </div>
+            <h3 class="font-display text-lg font-bold text-white mb-2">
+              Vidio
+            </h3>
+            <a
+              href="https://drive.google.com/file/d/1xId-ynrBIQ0LSDhtgBdQjZ5Z9vtdxleO/view?usp=sharing"
+              >Lihat</a
+            >
+          </div>
+
+          <!-- Tugas 3 -->
+          <div
+            class="bg-cyber-panel border border-cyber-border rounded-xl p-6 card-hover reveal reveal-delay-3"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <span
+                class="font-mono text-xs text-cyber-blue bg-cyber-blue/10 px-3 py-1 rounded-full"
+                >Tugas 03</span
+              >
+              <span
+                class="text-yellow-400 text-xs font-mono bg-yellow-400/10 px-2 py-1 rounded-full"
+                >On-going</span
+              >
+            </div>
+            <div
+              class="w-10 h-10 rounded-lg bg-cyber-blue/15 flex items-center justify-center mb-4"
+            >
+              <i class="fa-solid fa-code text-cyber-blue"></i>
+            </div>
+            <h3 class="font-display text-lg font-bold text-white mb-2">
+              Portfolio Ini
+            </h3>
+            <p class="text-cyber-gray text-sm leading-relaxed mb-5">
+              Membangun halaman portfolio personal berbasis single-page HTML
+              dengan tema futuristik. Mengintegrasikan animasi scroll, efek
+              neon, dan navigasi responsif tanpa framework eksternal.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="text-xs font-mono text-cyber-gray bg-cyber-border/40 px-2 py-1 rounded"
+                >HTML5</span
+              >
+              <span
+                class="text-xs font-mono text-cyber-gray bg-cyber-border/40 px-2 py-1 rounded"
+                >Tailwind</span
+              >
+              <span
+                class="text-xs font-mono text-cyber-gray bg-cyber-border/40 px-2 py-1 rounded"
+                >Vanilla JS</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="h-divider"></div>
+
+    <!-- ═══════════════════════════════════════════ 5. PORTFOLIO ════════════════════════════════════════════ -->
+    <section id="portfolio" class="relative py-24 grid-bg">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="section-label mb-2 reveal">05 — Karya</p>
+        <h2
+          class="section-title text-4xl md:text-5xl mb-16 reveal reveal-delay-1"
+        >
+          Portfolio <span class="text-cyber-blue">Proyek</span>
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="bg-cyber-panel border border-cyber-border rounded-xl overflow-hidden card-hover reveal reveal-delay-1"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="assets/dashboard.png"
+                alt="Project NeuroChat"
+                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-cyber-panel/90 to-transparent"
+              ></div>
+              <span
+                class="absolute top-3 right-3 bg-cyber-blue text-white text-xs font-mono px-2 py-1 rounded"
+                >Web - Admin Panel</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="font-display text-lg font-bold text-white mb-2">
+                NeuroChat AI
+              </h3>
+              <p class="text-cyber-gray text-sm leading-relaxed mb-4">
+                Aplikasi berbasis web untuk mengelola data pasien, riwayat
+                pemeriksaan, diagnosa, dan tindakan medis secara terstruktur dan
+                aman. Sistem ini membantu tenaga medis dalam mengakses riwayat
+                kesehatan pasien dengan cepat, meningkatkan efisiensi pelayanan
+                dan akurasi pencatatan data.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span
+                  class="text-xs font-mono text-cyber-blue border border-cyber-blue/30 px-2 py-1 rounded"
+                  >Laravel</span
+                >
+                <span
+                  class="text-xs font-mono text-cyber-blue border border-cyber-blue/30 px-2 py-1 rounded"
+                  >Tailwind</span
+                >
+                <span
+                  class="text-xs font-mono text-cyber-blue border border-cyber-blue/30 px-2 py-1 rounded"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex gap-3">
+                <a href="#" class="btn-blue text-xs py-1.5 px-4">Live Demo</a>
+                <a href="#" class="btn-green text-xs py-1.5 px-4">
+                  <i class="fa-brands fa-github mr-1"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="bg-cyber-panel border border-cyber-border rounded-xl overflow-hidden card-hover reveal reveal-delay-2"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="assets/ISP.png"
+                alt="Project Dashboard"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-cyber-panel/90 to-transparent"
+              ></div>
+              <span
+                class="absolute top-3 right-3 bg-cyber-green/80 text-cyber-bg text-xs font-mono px-2 py-1 rounded"
+                >ISP Web Management</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="font-display text-lg font-bold text-white mb-2">
+                ISP Delta Net
+              </h3>
+              <p class="text-cyber-gray text-sm leading-relaxed mb-4">
+                Platform manajemen pelanggan dan penagihan untuk penyedia
+                layanan internet (ISP). Fitur utama meliputi manajemen
+                pelanggan, pembuatan invoice otomatis, monitoring status
+                pembayaran, serta integrasi dengan MikroTik untuk pengelolaan
+                koneksi pelanggan secara real-time.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span
+                  class="text-xs font-mono text-cyber-green border border-cyber-green/30 px-2 py-1 rounded"
+                  >React</span
+                >
+                <span
+                  class="text-xs font-mono text-cyber-green border border-cyber-green/30 px-2 py-1 rounded"
+                  >Laravel</span
+                >
+                <span
+                  class="text-xs font-mono text-cyber-green border border-cyber-green/30 px-2 py-1 rounded"
+                  >MySql</span
+                >
+                <span
+                  class="text-xs font-mono text-cyber-green border border-cyber-green/30 px-2 py-1 rounded"
+                  >Mikrotik</span
+                >
+                <span
+                  class="text-xs font-mono text-cyber-green border border-cyber-green/30 px-2 py-1 rounded"
+                  >Pusher</span
+                >
+              </div>
+              <div class="flex gap-3">
+                <a href="#" class="btn-blue text-xs py-1.5 px-4">Live Demo</a>
+                <a href="#" class="btn-green text-xs py-1.5 px-4">
+                  <i class="fa-brands fa-github mr-1"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="bg-cyber-panel border border-cyber-border rounded-xl overflow-hidden card-hover reveal reveal-delay-3"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="assets/comprof.png"
+                alt="Project GameDev"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-cyber-panel/90 to-transparent"
+              ></div>
+              <span
+                class="absolute top-3 right-3 bg-purple-500/80 text-white text-xs font-mono px-2 py-1 rounded"
+                >Company Profile</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="font-display text-lg font-bold text-white mb-2">
+                Company Profile Shatsaka Sinergi Utama
+              </h3>
+              <p class="text-cyber-gray text-sm leading-relaxed mb-4">
+                Website company profile yang menampilkan informasi perusahaan,
+                layanan, portofolio, dan kontak secara profesional. Dirancang
+                dengan tampilan modern dan responsif untuk meningkatkan
+                kredibilitas perusahaan serta memudahkan calon klien mendapatkan
+                informasi.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span
+                  class="text-xs font-mono text-purple-400 border border-purple-400/30 px-2 py-1 rounded"
+                  >Figma</span
+                >
+                <span
+                  class="text-xs font-mono text-purple-400 border border-purple-400/30 px-2 py-1 rounded"
+                  >React Js</span
+                >
+              </div>
+              <div class="flex gap-3">
+                <a href="#" class="btn-blue text-xs py-1.5 px-4">Live Demo</a>
+                <a href="#" class="btn-green text-xs py-1.5 px-4">
+                  <i class="fa-brands fa-github mr-1"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="h-divider"></div>
+
+    <!-- ═══════════════════════════════════════════ 6. VIDEO ════════════════════════════════════════════ -->
+    <section id="video" class="relative py-24">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="section-label mb-2 reveal">06 — Media</p>
+        <h2
+          class="section-title text-4xl md:text-5xl mb-4 reveal reveal-delay-1"
+        >
+          Tugas <span class="text-cyber-blue">Vidio</span>
+        </h2>
+        <p
+          class="text-cyber-gray font-mono text-sm mb-12 reveal reveal-delay-2"
+        >
+          // Dokumentasi dan presentasi proyek
+        </p>
+
+        <div
+          class="bg-cyber-panel border border-cyber-border rounded-2xl overflow-hidden reveal reveal-delay-2 border-glow-blue"
+        >
+          <!-- Video header bar -->
+          <div
+            class="flex items-center gap-3 px-5 py-3 bg-cyber-bg/60 border-b border-cyber-border"
+          >
+            <div class="flex gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/70"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/70"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500/70"></span>
+            </div>
+            <p class="font-mono text-xs text-cyber-gray ml-2">
+              tugas-vidio.mp4 — Zidane Dev Portfolio
+            </p>
+          </div>
+
+          <!-- Embed -->
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="Tugas Vidio — Alex Dev"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+
+          <!-- Video info -->
+          <div
+            class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          >
+            <div>
+              <h3 class="font-display font-bold text-white">
+                Tugas Vidio — Presentasi Portfolio
+              </h3>
+              <p class="text-cyber-gray text-xs font-mono mt-1">
+                Durasi: 3:45 · Diunggah: Feb 2025
+              </p>
+            </div>
+            <div class="flex gap-3 items-center">
+              <span
+                class="flex items-center gap-1.5 text-cyber-green text-xs font-mono"
+              >
+                <i class="fa-solid fa-eye"></i> 1.2K views
+              </span>
+              <span
+                class="flex items-center gap-1.5 text-cyber-blue text-xs font-mono"
+              >
+                <i class="fa-solid fa-thumbs-up"></i> 87 likes
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="h-divider"></div>
+
+    <!-- ═══════════════════════════════════════════ 7. KONTAK ════════════════════════════════════════════ -->
+    <section id="kontak" class="relative py-24 grid-bg">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="section-label mb-2 reveal">07 — Hubungi</p>
+        <h2
+          class="section-title text-4xl md:text-5xl mb-16 reveal reveal-delay-1"
+        >
+          Let's <span class="text-cyber-green">Connect</span>
+        </h2>
+
+        <div class="grid lg:grid-cols-2 gap-16">
+          <!-- Form -->
+          <div class="reveal reveal-delay-1">
+            <h3 class="font-display text-xl font-bold text-white mb-6">
+              Kirim Pesan
+            </h3>
+            <form class="space-y-5" onsubmit="handleForm(event)">
+              <div>
+                <label
+                  class="block font-mono text-xs text-cyber-gray uppercase tracking-widest mb-2"
+                  >Nama Lengkap</label
+                >
+                <input
+                  type="text"
+                  placeholder="Masukkan nama Anda..."
+                  class="form-input"
+                />
+              </div>
+              <div>
+                <label
+                  class="block font-mono text-xs text-cyber-gray uppercase tracking-widest mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  placeholder="nama@email.com"
+                  class="form-input"
+                />
+              </div>
+              <div>
+                <label
+                  class="block font-mono text-xs text-cyber-gray uppercase tracking-widest mb-2"
+                  >Subjek</label
+                >
+                <input
+                  type="text"
+                  placeholder="Topik pesan..."
+                  class="form-input"
+                />
+              </div>
+              <div>
+                <label
+                  class="block font-mono text-xs text-cyber-gray uppercase tracking-widest mb-2"
+                  >Pesan</label
+                >
+                <textarea
+                  rows="5"
+                  placeholder="Tulis pesan Anda di sini..."
+                  class="form-input resize-none"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-blue w-full text-center py-3">
+                <i class="fa-solid fa-paper-plane mr-2"></i>Kirim Pesan
+              </button>
+              <div
+                id="formMsg"
+                class="hidden text-cyber-green font-mono text-sm text-center py-2 bg-cyber-green/10 rounded-lg border border-cyber-green/30"
+              >
+                ✓ Pesan terkirim! Saya akan membalas segera.
+              </div>
+            </form>
+          </div>
+
+          <!-- Contact info -->
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-display text-xl font-bold text-white mb-6">
+              Informasi Kontak
+            </h3>
+
+            <div class="space-y-4 mb-10">
+              <div
+                class="flex items-center gap-4 bg-cyber-panel border border-cyber-border rounded-xl p-4 card-hover"
+              >
+                <div
+                  class="w-10 h-10 rounded-lg bg-cyber-blue/15 flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fa-solid fa-envelope text-cyber-blue"></i>
+                </div>
+                <div>
+                  <p class="text-cyber-gray text-xs font-mono">Email</p>
+                  <p class="text-cyber-light text-sm">mzidane1910@gmail.com</p>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 bg-cyber-panel border border-cyber-border rounded-xl p-4 card-hover"
+              >
+                <div
+                  class="w-10 h-10 rounded-lg bg-cyber-blue/15 flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fa-solid fa-phone text-cyber-blue"></i>
+                </div>
+                <div>
+                  <p class="text-cyber-gray text-xs font-mono">Telepon</p>
+                  <p class="text-cyber-light text-sm">+62 895 3259 10142</p>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-4 bg-cyber-panel border border-cyber-border rounded-xl p-4 card-hover"
+              >
+                <div
+                  class="w-10 h-10 rounded-lg bg-cyber-green/15 flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="fa-solid fa-map-pin text-cyber-green"></i>
+                </div>
+                <div>
+                  <p class="text-cyber-gray text-xs font-mono">Lokasi</p>
+                  <p class="text-cyber-light text-sm">Bandung, Indonesia</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <h4
+              class="font-mono text-xs text-cyber-gray uppercase tracking-widest mb-5"
+            >
+              Media Sosial
+            </h4>
+            <div class="flex gap-4">
+              <a
+                href="https://github.com/MZidaneRamadhan"
+                class="w-12 h-12 rounded-xl bg-cyber-panel border border-cyber-border flex items-center justify-center text-cyber-gray hover:text-white hover:bg-gray-700 hover:border-gray-500 transition-all duration-200 hover:scale-110"
+              >
+                <i class="fa-brands fa-github text-lg"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/mzdnrn_/"
+                class="w-12 h-12 rounded-xl bg-cyber-panel border border-cyber-border flex items-center justify-center text-cyber-gray hover:text-orange-400 hover:border-orange-400/50 hover:bg-orange-500/10 transition-all duration-200 hover:scale-110"
+              >
+                <i class="fa-brands fa-instagram text-lg"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ FOOTER ════════════════════════════════════════════ -->
+    <footer class="border-t border-cyber-border py-8 text-center">
+      <p class="font-mono text-xs text-cyber-gray">
+        <span class="text-cyber-blue">&lt;</span>IDan Dev<span
+          class="text-cyber-blue"
+          >/&gt;</span
+        >
+        — Built with <span class="text-cyber-green">♥</span> in Bandung · © 2025
+        All rights reserved
+      </p>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════ JAVASCRIPT ════════════════════════════════════════════ -->
+    <script>
+      // ─── Mobile Menu ─────────────────────────────
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      menuBtn.addEventListener("click", () =>
+        mobileMenu.classList.toggle("hidden"),
+      );
+      document.querySelectorAll("#mobileMenu a").forEach((a) => {
+        a.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+      });
+
+      // ─── Smooth scroll ───────────────────────────
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const el = document.querySelector(a.getAttribute("href"));
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // ─── Typing Effect ───────────────────────────
+      const phrases = [
+        "Full-Stack Developer",
+        "System Designer",
+        "AI Explorer",
+        "Open Source Contributor",
+        "Problem Solver",
+      ];
+      let pi = 0,
+        ci = 0,
+        deleting = false;
+      const typedEl = document.getElementById("typedText");
+      function type() {
+        const full = phrases[pi];
+        typedEl.textContent = deleting
+          ? full.substring(0, ci--)
+          : full.substring(0, ci++);
+        if (!deleting && ci > full.length) {
+          deleting = true;
+          setTimeout(type, 1500);
+          return;
+        }
+        if (deleting && ci < 0) {
+          deleting = false;
+          pi = (pi + 1) % phrases.length;
+        }
+        setTimeout(type, deleting ? 50 : 90);
+      }
+      type();
+
+      // ─── Skills data ──────────────────────────────
+      const skills = [
+        { name: "HTML / CSS", icon: "fa-html5", level: 95, color: "#1d6df5" },
+        { name: "JavaScript", icon: "fa-js", level: 88, color: "#1d6df5" },
+        { name: "React / Next", icon: "fa-react", level: 82, color: "#3d8fff" },
+        { name: "Node.js", icon: "fa-node-js", level: 75, color: "#3d8fff" },
+        { name: "Python / AI", icon: "fa-python", level: 70, color: "#1d6df5" },
+        {
+          name: "Git / CI/CD",
+          icon: "fa-git-alt",
+          level: 85,
+          color: "#3d8fff",
+        },
+      ];
+      const barContainer = document.getElementById("skillBars");
+      skills.forEach((s) => {
+        barContainer.innerHTML += `
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <span class="flex items-center gap-2 text-cyber-light text-sm">
+            <i class="fa-brands ${s.icon} text-cyber-blue"></i>${s.name}
+          </span>
+          <span class="font-mono text-xs text-cyber-gray">${s.level}%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-fill" data-level="${s.level}" style="background:linear-gradient(90deg,${s.color},${s.color}aa)"></div>
+        </div>
+      </div>`;
+      });
+
+      // ─── Intersection Observer ────────────────────
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              // Animate skill bars
+              const fills = entry.target.querySelectorAll(".skill-fill");
+              fills.forEach((f) => {
+                f.style.width = f.dataset.level + "%";
+              });
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // Also observe skill bars section separately
+      const skillSection = document.getElementById("skill");
+      const skillIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              document.querySelectorAll(".skill-fill").forEach((f) => {
+                f.style.width = f.dataset.level + "%";
+              });
+              skillIo.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+      skillIo.observe(skillSection);
+
+      // ─── Contact form ─────────────────────────────
+      function handleForm(e) {
+        e.preventDefault();
+        const msg = document.getElementById("formMsg");
+        msg.classList.remove("hidden");
+        setTimeout(() => msg.classList.add("hidden"), 4000);
+      }
+
+      // ─── Particle Canvas ──────────────────────────
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d");
+      let W,
+        H,
+        dots = [];
+
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener("resize", resize);
+
+      class Dot {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * W;
+          this.y = Math.random() * H;
+          this.r = Math.random() * 1.2 + 0.3;
+          this.vx = (Math.random() - 0.5) * 0.3;
+          this.vy = (Math.random() - 0.5) * 0.3;
+          this.a = Math.random() * 0.5 + 0.1;
+          this.c = Math.random() > 0.5 ? "29,109,245" : "0,229,160";
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > W || this.y < 0 || this.y > H)
+            this.reset();
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${this.c},${this.a})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < 80; i++) dots.push(new Dot());
+
+      function animate() {
+        ctx.clearRect(0, 0, W, H);
+        dots.forEach((d) => {
+          d.update();
+          d.draw();
+        });
+
+        // Connect nearby dots
+        for (let i = 0; i < dots.length; i++) {
+          for (let j = i + 1; j < dots.length; j++) {
+            const dx = dots[i].x - dots[j].x;
+            const dy = dots[i].y - dots[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(dots[i].x, dots[i].y);
+              ctx.lineTo(dots[j].x, dots[j].y);
+              ctx.strokeStyle = `rgba(29,109,245,${0.08 * (1 - dist / 120)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+  </body>
+</html>
